@@ -3,6 +3,7 @@ package com.example.firstproject.service;
 import com.example.firstproject.dto.ArticleForm;
 import com.example.firstproject.entity.Article;
 import com.example.firstproject.repository.ArticleRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class ArticleService {
     @Autowired
@@ -38,7 +40,7 @@ public class ArticleService {
         Article target = articleRepository.findById(id).orElse(null);
 
         // 잘못된 요청 처리
-        if (target == null || id != article.getId()) {
+        if (target == null || id != target.getId()) {
             // 400, 잘못된 요청 응답!
             return null;
         }

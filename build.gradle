@@ -16,6 +16,9 @@ repositories {
 }
 
 dependencies {
+	// DB 의존성 추가
+	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 
